@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사랑하는 [김해주]에게</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff4d4d;
+        }
+        #message {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        #heart {
+            color: red;
+            font-size: 100px;
+            cursor: pointer;
+        }
+        #slideshow {
+            max-width: 80%;
+            margin: 20px auto;
+            position: relative;
+            display: none;
+        }
+        .slide {
+            display: none;
+            max-width: 100%;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+        #prev {
+            left: 10px;
+        }
+        #next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>사랑하는 [김해주]에게</h1>
+    <p id="message">당신은 내 인생의 가장 소중한 선물입니다.</p>
+    <div id="heart">&#10084;</div>
+    <p>이 하트를 클릭해보세요!</p>
+    
+    <div id="slideshow">
+        <img class="slide" src="다운로드.jpg" alt="우리의 추억 1">
+        <img class="slide" src="다운로드1.jpg" alt="우리의 추억 2">
+        <img class="slide" src="다운로드2.jpg" alt="우리의 추억 3">
+        <a href="#" class="slide-button" id="prev">&lt;</a>
+        <a href="#" class="slide-button" id="next">&gt;</a>
+    </div>
+
+    <script>
+        const heart = document.getElementById('heart');
+        const slideshow = document.getElementById('slideshow');
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        heart.addEventListener('click', function() {
+            slideshow.style.display = 'block';
+            showSlide(0);
+            alert('사랑해요!');
+        });
+
+        prevButton.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextButton.addEventListener('click', () => showSlide(currentSlide + 1));
+    </script>
+</body>
+</html>
