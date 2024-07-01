@@ -3,38 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사랑하는 [김해주]에게</title>
+    <title>우리의 600일</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #ffe6e6;
+            background-image: url('다운로드.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
             padding: 50px;
         }
         h1 {
-            color: #ff4d4d;
-        }
-        #message {
-            font-size: 18px;
-            margin: 20px 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
         }
         #heart {
+            font-size: 50px;
             color: red;
-            font-size: 100px;
             cursor: pointer;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        #heart:hover {
+            transform: scale(1.2);
         }
         #slideshow {
+            display: none;
             max-width: 80%;
             margin: 20px auto;
             position: relative;
-            display: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
         }
         .slide {
             display: none;
             max-width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;        
         }
         .slide.active {
             display: block;
+            opacity: 1;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+	    font-size: 2em;
         }
         .slide-button {
             position: absolute;
@@ -44,6 +80,7 @@
             color: white;
             padding: 10px;
             text-decoration: none;
+            border-radius: 5px;
         }
         #prev {
             left: 10px;
@@ -51,25 +88,155 @@
         #next {
             right: 10px;
         }
+        .final-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .final-message div {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <h1>사랑하는 [김해주]에게</h1>
-    <p id="message">당신은 내 인생의 가장 소중한 선물입니다.</p>
+    <h1>사랑하는 [해주]에게</h1>
+    <h1><span class="heart">&#10084;</span> 우리의 600일 <span class="heart">&#10084;</span></h1>
+    <p id="message">너는 내 인생의 가장 소중한 선물이야</p>
     <div id="heart">&#10084;</div>
     <p>이 하트를 클릭해보세요!</p>
-    
+
     <div id="slideshow">
-        <img class="slide" src="다운로드.jpg" alt="우리의 추억 1">
-        <img class="slide" src="다운로드1.jpg" alt="우리의 추억 2">
-        <img class="slide" src="다운로드2.jpg" alt="우리의 추억 3">
+        <div class="slide active">
+            <img src="우리1.jpg" alt="사귄지 일주일">
+            <div class="caption">사귄지 일주일</div>
+        </div>
+        <div class="slide">
+            <img src="우리2.jpg" alt="어둠속의 대화">
+            <div class="caption">어둠속의 대화</div>
+        </div>
+        <div class="slide">
+            <img src="우리3.jpg" alt="영화 올빼미">
+            <div class="caption">영화 올빼미</div>
+        </div>
+        <div class="slide">
+            <img src="우리4.jpg" alt="첫 크리스마스">
+            <div class="caption">첫 크리스마스</div>
+        </div>
+        <div class="slide">
+            <img src="우리5.jpg" alt="레전드 짤 탄생">
+            <div class="caption">레전드 짤 탄생</div>
+        </div>
+        <div class="slide">
+            <img src="우리6.jpg" alt="첫 새해맞이">
+            <div class="caption">첫 새해맞이</div>
+        </div>
+        <div class="slide">
+            <img src="우리7.jpg" alt="첫 커플링">
+            <div class="caption">첫 커플링</div>
+        </div>
+        <div class="slide">
+            <img src="우리8.jpg" alt="첫 여행 경주">
+            <div class="caption">첫 여행 경주</div>
+        </div>
+        <div class="slide">
+            <img src="우리9.jpg" alt="어머머">
+            <div class="caption">어머머</div>
+        </div>
+        <div class="slide">
+            <img src="우리10.jpg" alt="오빠 가지마">
+            <div class="caption">오빠 가지마</div>
+        </div>
+        <div class="slide">
+            <img src="우리11.jpg" alt="어느 봄날의 밤 삼례에서">
+            <div class="caption">어느 봄날의 밤 삼례에서</div>
+        </div>
+        <div class="slide">
+            <img src="우리12.jpg" alt="벚꽃 구경">
+            <div class="caption">벚꽃 구경</div>
+        </div>
+        <div class="slide">
+            <img src="우리13.jpg" alt="레전드 첫 내 생일">
+            <div class="caption">레전드 첫 생일</div>
+        </div>
+        <div class="slide">
+            <img src="우리14.jpg" alt="내 껌딱지">
+            <div class="caption">내 껌딱지</div>
+        </div>
+        <div class="slide">
+            <img src="우리15.jpg" alt="여수에서">
+            <div class="caption">여수에서</div>
+        </div>
+        <div class="slide">
+            <img src="우리16.jpg" alt="제주 여행">
+            <div class="caption">제주 여행</div>
+        </div>
+        <div class="slide">
+            <img src="우리17.jpg" alt="레전드 첫 해주 생일">
+            <div class="caption">레전드 첫 해주 생일</div>
+        </div>
+        <div class="slide">
+            <img src="우리18.jpg" alt="한강 나들이">
+            <div class="caption">한강 나들이</div>
+        </div>
+        <div class="slide">
+            <img src="우리19.jpg" alt="우리는 항상 실로 묶여있어">
+            <div class="caption">우리는 항상 실로 묶여있어</div>
+        </div>
+        <div class="slide">
+            <img src="우리20.jpg" alt="우리의 1주년 캠핑">
+            <div class="caption">우리의 1주년 캠핑</div>
+        </div>
+        <div class="slide">
+            <img src="우리21.jpg" alt="순천 여행">
+            <div class="caption">순천 여행</div>
+        </div>
+        <div class="slide">
+            <img src="우리22.jpg" alt="두 번째 크리스마스">
+            <div class="caption">두 번째 크리스마스</div>
+        </div>
+        <div class="slide">
+            <img src="우리23.jpg" alt="두 번째 새해맞이">
+            <div class="caption">두 번째 새해맞이</div>
+        </div>
+        <div class="slide">
+            <img src="우리24.jpg" alt="레전드 양양의 문학소녀">
+            <div class="caption">레전드 양양의 문학소녀</div>
+        </div>
+        <div class="slide">
+            <img src="우리25.jpg" alt="송천동에서">
+            <div class="caption">송천동에서</div>
+        </div>
+        <div class="slide">
+            <img src="우리26.jpg" alt="내 두번째 생일">
+            <div class="caption">내 두번째 생일</div>
+        </div>
+        <div class="slide">
+            <img src="우리27.jpg" alt="내 두번째 생일2">
+            <div class="caption">내 두번째 생일2</div>
+        </div>
+        <div class="slide">
+            <img src="우리28.jpg" alt="첫 해외여행 후쿠오카">
+            <div class="caption">첫 해외여행 후쿠오카</div>
+        </div>
+        <div class="slide final-message">
+            <div>
+                <h2>사랑하는 해주야</h2>
+                <p>우리가 함께한 600일, 정말 행복했어.<br>
+                앞으로도 계속 함께 걸어가자.<br>
+                사랑해 ❤️</p>
+            </div>
+        </div>
         <a href="#" class="slide-button" id="prev">&lt;</a>
         <a href="#" class="slide-button" id="next">&gt;</a>
     </div>
 
     <script>
-        const heart = document.getElementById('heart');
-        const slideshow = document.getElementById('slideshow');
         const slides = document.querySelectorAll('.slide');
         const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
@@ -79,16 +246,43 @@
             slides[currentSlide].classList.remove('active');
             currentSlide = (n + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
+            
+            // 마지막 슬라이드인 경우 버튼 숨기기
+            if (currentSlide === slides.length - 1) {
+                prevButton.style.display = 'none';
+                nextButton.style.display = 'none';
+            } else {
+                prevButton.style.display = 'block';
+                nextButton.style.display = 'block';
+            }
         }
 
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        const heart = document.getElementById('heart');
+        const slideshow = document.getElementById('slideshow');
         heart.addEventListener('click', function() {
             slideshow.style.display = 'block';
             showSlide(0);
-            alert('사랑해요!');
+            alert('내 말랭이 사랑해!!!');
         });
 
-        prevButton.addEventListener('click', () => showSlide(currentSlide - 1));
-        nextButton.addEventListener('click', () => showSlide(currentSlide + 1));
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // 초기 슬라이드 표시
+        showSlide(0);
+
+        // 페이지 로드 시 슬라이드쇼 숨기기
+        window.addEventListener('load', function() {
+            slideshow.style.display = 'none';
+        });
     </script>
 </body>
 </html>
